@@ -1,0 +1,77 @@
+class TaskManager {
+    constructor() {
+        this.tasks = [];
+    }
+
+    addTask(task) {
+        setTimeout(() => {
+            this.tasks.push({ name: task, completed: false });
+            console.log(`Added task: ${task}`);
+        }, 1000);
+    }
+
+    listTasks() {
+        console.log('All tasks:');
+        this.tasks.forEach(task => {
+            console.log(`- ${task.name} [${task.completed ? 'Completed' : 'Incomplete'}]`);
+        });
+    }
+
+    completeTask(taskName) {
+        setTimeout(() => {
+            this.tasks = this.tasks.map(task => 
+                task.name === taskName ? { ...task, completed: true } : task
+            );
+            console.log(`Completed task: ${taskName}`);
+        }, 1000);
+    }
+
+    filterTasks(callback) {
+        return this.tasks.filter(callback);
+    }
+
+    logIncompleteTasks() {
+        const incompleteTasks = this.filterTasks(task => !task.completed);
+        console.log(`Number of incomplete tasks: ${incompleteTasks.length}`);
+        return incompleteTasks.length;
+    }
+
+    startLoggingIncompleteTasks() {
+        const intervalId = setInterval(() => {
+            const incompleteTasksCount = this.logIncompleteTasks();
+            if (incompleteTasksCount === 0) {
+                clearInterval(intervalId);
+                console.log('All tasks are complete.');
+            }
+        }, 3000);
+    }
+}
+
+// Demonstration script
+const taskManager = new TaskManager();
+
+taskManager.addTask('Task 1');
+taskManager.addTask('Task 2');
+taskManager.addTask('Task 3');
+
+setTimeout(() => {
+    taskManager.listTasks();
+    taskManager.completeTask('Task 1');
+}, 2000);
+
+setTimeout(() => {
+    taskManager.listTasks();
+    taskManager.startLoggingIncompleteTasks();
+}, 4000);
+
+setTimeout(() => {
+    taskManager.completeTask('Task 2');
+}, 6000);
+
+setTimeout(() => {
+    taskManager.completeTask('Task 3');
+}, 8000);
+
+setTimeout(() => {
+    taskManager.listTasks();
+}, 10000);
