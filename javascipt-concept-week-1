@@ -1,0 +1,65 @@
+class JavaScriptConcepts {
+    // Question 1: Array.prototype.sort() and Byte Comparison
+    byteComparisonSortExample() {
+        const array = [10, 5, 1];
+        const sortedArray = array.sort();
+        console.log("Byte Comparison Sort Example:");
+        console.log("Input: [10, 5, 1]");
+        console.log("Output:", sortedArray); // Output: [1, 10, 5]
+        console.log("Explanation: Array.prototype.sort() converts elements to strings and sorts them lexicographically by default.");
+        console.log();
+    }
+
+    // Question 2: Date Object and Zero-Based Months
+    zeroBasedMonthExample() {
+        const date = new Date(2016, 5, 31);
+        console.log("Zero-Based Month Example:");
+        console.log("Input: new Date(2016, 5, 31)");
+        console.log("Output:", date.toString()); // Output: "Fri Jul 01 2016 ..."
+        console.log("Explanation: Months in JavaScript Date objects are zero-based, so 5 represents June, and June 31st rolls over to July 1st.");
+        console.log();
+    }
+
+    // Question 3: Floating Point Precision
+    floatingPointPrecisionExample() {
+        const result = 0.1 + 0.2;
+        console.log("Floating Point Precision Example:");
+        console.log("Input: 0.1 + 0.2");
+        console.log("Output:", result); // Output: 0.30000000000000004
+        console.log("Explanation: Floating point arithmetic can result in precision errors due to the way numbers are represented in memory.");
+        console.log();
+    }
+
+    // Question 4: String Length with Unicode Characters
+    unicodeStringLengthExample() {
+        const str = '💩';
+        console.log("Unicode String Length Example:");
+        console.log("Input: '💩'");
+        console.log("Output:", str.length); // Output: 2
+        console.log("Explanation: Some Unicode characters, like emojis, are represented by two code units, so their length is 2 instead of 1.");
+        console.log();
+    }
+
+    // Question 5: Instantiating Arrays
+    arrayInstantiationExample() {
+        const arr = new Array(1, 0, Array(2));
+        console.log("Array Instantiation Example:");
+        console.log("Input: new Array(1, 0, Array(2))");
+        console.log("Output:", arr); // Output: [1, 0, [undefined, undefined]]
+        console.log("Explanation: When passing multiple arguments to Array constructor, it creates an array with those elements. If a single number is passed, it creates an array with that length.");
+        console.log();
+    }
+
+    // Method to call all examples
+    runAllExamples() {
+        this.byteComparisonSortExample();
+        this.zeroBasedMonthExample();
+        this.floatingPointPrecisionExample();
+        this.unicodeStringLengthExample();
+        this.arrayInstantiationExample();
+    }
+}
+
+// Instantiate the class and run all examples
+const jsConcepts = new JavaScriptConcepts();
+jsConcepts.runAllExamples();
