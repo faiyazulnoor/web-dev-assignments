@@ -1,0 +1,8 @@
+question1):
+
+JS- use of typeof  , parseFloat, Math.abs, isNaN  imight come there might be other way to do skipping these too
+ou have an array of strings representing income and expenses from a company's balance sheet. The strings contain positive and negative dollar amounts, for example, "-$100.43" or "$23.01". The strings may not always contain a dollar sign in front. and may not always have a decimal. Positive numbers represent income, whereas negative numbers represent expenses. Elements in the array that are not strings, or which can not be interpreted as valid dollar amounts, should be discarded. Expenses of zero (-0) should not be counted.
+Your job is to determine how many expenses are in the array, and their sum. This sum should be the absolute value of the expenses. To communicate this data, you should write a function that accepts the balance sheet array and returns a string formatted like so:
+"expenseCount: 100, expenseSum: 4000"
+Examples
+reportExpenses(["$1.23", "-5", "-$4.23"]) "expense Count: 2, expenseSum: 9.23" reportExpenses(["$1.23", "$5.02", *-$8.00"]) === "expenseCount
